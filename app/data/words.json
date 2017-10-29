@@ -1,0 +1,14 @@
+{
+    "subjects": {
+    "singular": ["HH", "Tare", "Vile", "Ilari", "Eräveikko", "Homma", "Veikko", "Vene", "Kolo", "HaSi", "SuSi", "Herra lippukunta", "Hallitus", "Pessi", "Illi", "Homma Henrikki", "Rähinä Rauhala", "Tuhma-Tare", "TT", "Kim", "Matias", "Juikkonen", "Ian", "Asiantuntija", "Allu", "Api", "Operatiivinen johtaja", "HR01", "MV", "HEV", "TuTy", "KiSS", "Holma", "Alpo", "Elsa", "Noora", "Milla", "Coca Cola", "Kikka", "Ella", "Tz", "Niko", "Kämppä", "Animerider", "Hevonen", "Se", "Pena", "Sanni", "Trump", "Jokke", "Tom", "Tomppa", "Stöö", "Pallu", "Hilla", "Siiri", "Hile", "Jäälautta", "HoKe", "RR", "Akke", "Petteri"],
+    "plural": ["SuSit", "HaSit", "Eräveikot", "Pojat", "Tytöt", "Suo Sirkut", "HEVit", "TuTyt", "Hevoset", "Naiset", "Miehet"]
+    },
+    "verbs": {
+    "singular": ["olisi", "ei olisikaan", "saattaisi olla", "haluaisi olla", "ei olisi", "olisi ollut", "tulisi olemaan", "ei haluaisi olla", "saattaisi olla", "olisi sittenkin", "ei olisi enää", "olisi vieläkin", "väittäisi olevansa"],
+    "plural": ["olisivat", "eivät olisikaan", "saattaisivat olla", "haluaisivat olla", "eivät olisi", "olisivat olleet", "tulisivat olemaan", "eivät haluaisi olla", "saattaisivat olla", "olisivat sittenkin", "eivät olisi enää", "olisivat vieläkin", "väittäisivät olevansa"]
+    },
+    "objects": {
+    "singular": ["tymä", "iso", "tyhmä", "eräveikko", "nihkeä", "löysä", "särmä", "aina täällä", "kololla", "kämpällä", "nukkumassa", "joulupukki", "humalassa", "kiva", "anal saunassa", "kyrpä", "kissanpentu", "partiossa", "hevosmies", "animen ystävä", "köyhä", "teekkari", "ihana", "saunan nurkassa", "lauteiden alla", "kännissä", "nopea", "Stöö", "paha", "saunassa", "kävelevä sanakirja", "taksikuski", "tyttöjen reppu", "poro", "rikki", "hajonnut", "jossain", "huhu", "laama", "HaSi", "SuSi", "nimetön iguaani", "kiertämässä Kairia", ""],
+    "plural": ["tymiä", "isoja", "tyhmiä", "eräveikkoja", "nihkeitä", "löysiä", "särmiä", "aina täällä", "kololla", "kämpällä", "nukkumassa", "joulupukki", "humalassa", "kivoja", "anal saunassa", "kyrpiä", "kissanpentuja", "partiossa", "hevosmiehiä", "animen ystäviä", "köyhiä", "teekkareita", "ihania", "saunan nurkassa", "lauteiden alla", "kännissä", "nopea", "Stöö", "paha", "saunassa", "kävelevä sanakirja", "taksikuskeja", "tyttöjen reppuja", "poroja", "rikki", "hajonneita", "jossain", "huhuja", "laamoja", "HaSeja", "SuSeja", "nimettömiä iguaaneja", "kiertämässä Kairia", ""]
+    }
+}
