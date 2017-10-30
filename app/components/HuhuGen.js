@@ -29,6 +29,7 @@ class HuhuGen extends React.Component {
         var verb = verbArr[this.randomIndex(verbArr.length)];
 
         var objArr = singular ? parsed.objects.singular : parsed.objects.plural;
+        objArr = objArr.concat(parsed.objects.both);
         var obj = objArr[this.randomIndex(objArr.length)];
 
         return "..."+ subj + " " + verb + " " + obj
