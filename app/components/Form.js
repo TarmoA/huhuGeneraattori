@@ -22,8 +22,8 @@ class Form extends React.Component {
         return (
             <div>
             <p>Kuinka monta huhua haluat?</p>
-            <InputField onChange={this.handleChange} value={this.state.userInput}/><br/>
-            <Button onClick={this.handleClick}/>
+            <InputField onChange={this.handleChange} value={this.state.userInput} placeholder={"max 1000"}/><br/>
+            <Button onClick={this.handleClick} text={"Generoi!"}/>
             </div>
         );
     }

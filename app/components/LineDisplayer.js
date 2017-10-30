@@ -17,10 +17,10 @@ class LineDisplayer extends React.Component {
             )}</ul>
         );
         return (
-            <div>
-            {(lines.length != 0 && <p>Huhutaan että...</p>)}
+            lines.length != 0 && lines[0].length != 0 && (<div>
+            <p>Huhutaan että...</p>
                 {list}
-            </div>
+            </div>)
         );
     }
 }

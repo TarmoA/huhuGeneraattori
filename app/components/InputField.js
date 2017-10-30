@@ -15,6 +15,7 @@ class InputField extends React.Component {
             <input type="text"
             onChange={this.handleUserInput}
             value={this.props.value}
+            placeholder={this.props.placeholder}
             />
         );
     }

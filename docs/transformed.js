@@ -60,11 +60,26 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 15);
+/******/ 	return __webpack_require__(__webpack_require__.s = 17);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(18);
+} else {
+  module.exports = __webpack_require__(19);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -254,21 +269,6 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(16);
-} else {
-  module.exports = __webpack_require__(17);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -368,7 +368,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 module.exports = invariant;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 4 */
@@ -489,7 +489,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = emptyObject;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 6 */
@@ -558,7 +558,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = warning;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 7 */
@@ -625,7 +625,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 
 module.exports = checkPropTypes;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 8 */
@@ -687,6 +687,41 @@ module.exports = ExecutionEnvironment;
 
 /***/ }),
 /* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+if (process.env.NODE_ENV !== 'production') {
+  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
+    Symbol.for &&
+    Symbol.for('react.element')) ||
+    0xeac7;
+
+  var isValidElement = function(object) {
+    return typeof object === 'object' &&
+      object !== null &&
+      object.$$typeof === REACT_ELEMENT_TYPE;
+  };
+
+  // By explicitly using `prop-types` you are opting into new development behavior.
+  // http://fb.me/prop-types-in-prod
+  var throwOnDirectAccess = true;
+  module.exports = __webpack_require__(31)(isValidElement, throwOnDirectAccess);
+} else {
+  // By explicitly using `prop-types` you are opting into new production behavior.
+  // http://fb.me/prop-types-in-prod
+  module.exports = __webpack_require__(32)();
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ }),
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -764,10 +799,10 @@ var EventListener = {
 };
 
 module.exports = EventListener;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -838,7 +873,7 @@ function shallowEqual(objA, objB) {
 module.exports = shallowEqual;
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -853,7 +888,7 @@ module.exports = shallowEqual;
  * 
  */
 
-var isTextNode = __webpack_require__(20);
+var isTextNode = __webpack_require__(22);
 
 /*eslint-disable no-bitwise */
 
@@ -881,7 +916,7 @@ function containsNode(outerNode, innerNode) {
 module.exports = containsNode;
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -911,7 +946,7 @@ function focusNode(node) {
 module.exports = focusNode;
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -953,17 +988,35 @@ function getActiveElement(doc) /*?DOMElement*/{
 module.exports = getActiveElement;
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var React = __webpack_require__(1);
-var ReactDOM = __webpack_require__(18);
-var App = __webpack_require__(32);
+var React = __webpack_require__(0);
+
+class Button extends React.Component {
+    render() {
+        return React.createElement(
+            'button',
+            { onClick: this.props.onClick },
+            this.props.text
+        );
+    }
+}
+
+module.exports = Button;
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var React = __webpack_require__(0);
+var ReactDOM = __webpack_require__(20);
+var App = __webpack_require__(33);
 
 ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
 
 /***/ }),
-/* 16 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -993,7 +1046,7 @@ module.exports={Children:{map:S.map,forEach:S.forEach,count:S.count,toArray:S.to
 
 
 /***/ }),
-/* 17 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2696,10 +2749,10 @@ module.exports = ReactEntry;
 })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 18 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2737,15 +2790,15 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(19);
+  module.exports = __webpack_require__(21);
 } else {
-  module.exports = __webpack_require__(22);
+  module.exports = __webpack_require__(24);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 19 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2759,7 +2812,7 @@ if (process.env.NODE_ENV === 'production') {
  LICENSE file in the root directory of this source tree.
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(1);__webpack_require__(3);var l=__webpack_require__(9),n=__webpack_require__(4),ba=__webpack_require__(10),ca=__webpack_require__(2),da=__webpack_require__(5),ea=__webpack_require__(11),fa=__webpack_require__(12),ha=__webpack_require__(13),ia=__webpack_require__(14);
+var aa=__webpack_require__(0);__webpack_require__(3);var l=__webpack_require__(9),n=__webpack_require__(4),ba=__webpack_require__(11),ca=__webpack_require__(2),da=__webpack_require__(5),ea=__webpack_require__(12),fa=__webpack_require__(13),ha=__webpack_require__(14),ia=__webpack_require__(15);
 function w(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:w("227");
 function ja(a){switch(a){case "svg":return"http://www.w3.org/2000/svg";case "math":return"http://www.w3.org/1998/Math/MathML";default:return"http://www.w3.org/1999/xhtml"}}
 var ka={Namespaces:{html:"http://www.w3.org/1999/xhtml",mathml:"http://www.w3.org/1998/Math/MathML",svg:"http://www.w3.org/2000/svg"},getIntrinsicNamespace:ja,getChildNamespace:function(a,b){return null==a||"http://www.w3.org/1999/xhtml"===a?ja(b):"http://www.w3.org/2000/svg"===a&&"foreignObject"===b?"http://www.w3.org/1999/xhtml":a}},la=null,oa={};
@@ -3008,7 +3061,7 @@ unstable_deferredUpdates:Xj.deferredUpdates,flushSync:Xj.flushSync,__SECRET_INTE
 
 
 /***/ }),
-/* 20 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3023,7 +3076,7 @@ unstable_deferredUpdates:Xj.deferredUpdates,flushSync:Xj.flushSync,__SECRET_INTE
  * @typechecks
  */
 
-var isNode = __webpack_require__(21);
+var isNode = __webpack_require__(23);
 
 /**
  * @param {*} object The object to check.
@@ -3036,7 +3089,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 21 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3064,7 +3117,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 22 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3084,23 +3137,23 @@ if (process.env.NODE_ENV !== "production") {
 
 'use strict';
 
-var react = __webpack_require__(1);
+var react = __webpack_require__(0);
 var invariant = __webpack_require__(3);
 var ExecutionEnvironment = __webpack_require__(9);
 var _assign = __webpack_require__(4);
-var EventListener = __webpack_require__(10);
+var EventListener = __webpack_require__(11);
 var require$$0 = __webpack_require__(6);
-var hyphenateStyleName = __webpack_require__(23);
+var hyphenateStyleName = __webpack_require__(25);
 var emptyFunction = __webpack_require__(2);
-var camelizeStyleName = __webpack_require__(25);
-var performanceNow = __webpack_require__(27);
-var propTypes = __webpack_require__(29);
+var camelizeStyleName = __webpack_require__(27);
+var performanceNow = __webpack_require__(29);
+var propTypes = __webpack_require__(10);
 var emptyObject = __webpack_require__(5);
 var checkPropTypes = __webpack_require__(7);
-var shallowEqual = __webpack_require__(11);
-var containsNode = __webpack_require__(12);
-var focusNode = __webpack_require__(13);
-var getActiveElement = __webpack_require__(14);
+var shallowEqual = __webpack_require__(12);
+var containsNode = __webpack_require__(13);
+var focusNode = __webpack_require__(14);
+var getActiveElement = __webpack_require__(15);
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -20290,10 +20343,10 @@ module.exports = ReactDOMFiberEntry;
 })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 23 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20308,7 +20361,7 @@ module.exports = ReactDOMFiberEntry;
 
 
 
-var hyphenate = __webpack_require__(24);
+var hyphenate = __webpack_require__(26);
 
 var msPattern = /^ms-/;
 
@@ -20335,7 +20388,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 24 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20371,7 +20424,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 25 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20386,7 +20439,7 @@ module.exports = hyphenate;
 
 
 
-var camelize = __webpack_require__(26);
+var camelize = __webpack_require__(28);
 
 var msPattern = /^-ms-/;
 
@@ -20414,7 +20467,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 26 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20449,7 +20502,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 27 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20464,7 +20517,7 @@ module.exports = camelize;
  * @typechecks
  */
 
-var performance = __webpack_require__(28);
+var performance = __webpack_require__(30);
 
 var performanceNow;
 
@@ -20486,7 +20539,7 @@ if (performance.now) {
 module.exports = performanceNow;
 
 /***/ }),
-/* 28 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20512,42 +20565,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = performance || {};
 
 /***/ }),
-/* 29 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-if (process.env.NODE_ENV !== 'production') {
-  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
-    Symbol.for &&
-    Symbol.for('react.element')) ||
-    0xeac7;
-
-  var isValidElement = function(object) {
-    return typeof object === 'object' &&
-      object !== null &&
-      object.$$typeof === REACT_ELEMENT_TYPE;
-  };
-
-  // By explicitly using `prop-types` you are opting into new development behavior.
-  // http://fb.me/prop-types-in-prod
-  var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(30)(isValidElement, throwOnDirectAccess);
-} else {
-  // By explicitly using `prop-types` you are opting into new production behavior.
-  // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(31)();
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21094,10 +21112,10 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
   return ReactPropTypes;
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21162,13 +21180,15 @@ module.exports = function() {
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var React = __webpack_require__(1);
-var Generator = __webpack_require__(33);
-var LineDisplayer = __webpack_require__(36);
-var Form = __webpack_require__(37);
+var React = __webpack_require__(0);
+var Generator = __webpack_require__(34);
+var LineDisplayer = __webpack_require__(37);
+var Form = __webpack_require__(38);
+var CopyableTextArea = __webpack_require__(40);
+var PropTypes = __webpack_require__(10);
 
 class App extends React.Component {
 
@@ -21190,7 +21210,7 @@ class App extends React.Component {
     }
     changeLineCount(lineCount) {
         const parsed = parseInt(lineCount, 10);
-        if (!isNaN(parsed)) {
+        if (!isNaN(parsed) && parsed.toString() === lineCount && parsed >= 0) {
             this.setState({ nOfLines: Math.min(parsed, this.state.maxLines) });
         } else {
             this.setState({ nOfLines: 0 });
@@ -21207,19 +21227,27 @@ class App extends React.Component {
                 'Huhugeneraattori'
             ),
             React.createElement(Form, { onClick: this.changeContent, onFieldChange: this.changeLineCount }),
+            React.createElement(CopyableTextArea, { content: this.state.content.reduce((a, b) => a.concat(b), []) }),
+            React.createElement('br', null),
             React.createElement(LineDisplayer, { content: this.state.content })
         );
     }
 }
 
+App.propTypes = {
+    content: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
+    nOflines: PropTypes.number
+
+};
+
 module.exports = App;
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var React = __webpack_require__(1);
-var HuhuGen = __webpack_require__(34);
+var React = __webpack_require__(0);
+var HuhuGen = __webpack_require__(35);
 
 class Generator extends React.Component {
     constructor(props) {
@@ -21249,12 +21277,12 @@ class Generator extends React.Component {
 module.exports = Generator;
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var React = __webpack_require__(1);
+var React = __webpack_require__(0);
 // var data = require( '../data/words.json');
-var data = __webpack_require__(35);
+var data = __webpack_require__(36);
 
 class HuhuGen extends React.Component {
 
@@ -21294,16 +21322,16 @@ class HuhuGen extends React.Component {
 module.exports = HuhuGen;
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports) {
 
 module.exports = {"subjects":{"singular":["HH","Tare","Vile","Ilari","Eräveikko","Homma","Veikko","Vene","Kolo","HaSi","SuSi","Herra lippukunta","Hallitus","Pessi","Illi","Homma Henrikki","Rähinä Rauhala","Tuhma-Tare","TT","Kim","Matias","Juikkonen","Ian","Asiantuntija","Allu","Api","Operatiivinen johtaja","HR01","MV","HEV","TuTy","KiSS","Holma","Alpo","Elsa","Noora","Milla","Coca Cola","Kikka","Ella","Tz","Niko","Kämppä","Animerider","Hevonen","Se","Pena","Sanni","Trump","Jokke","Tom","Tomppa","Stöö","Pallu","Hilla","Siiri","Hile","Jäälautta","HoKe","RR","Akke","Petteri"],"plural":["SuSit","HaSit","Eräveikot","Pojat","Tytöt","Suo Sirkut","HEVit","TuTyt","Hevoset","Naiset","Miehet"]},"verbs":{"singular":["olisi","ei olisikaan","saattaisi olla","haluaisi olla","ei olisi","olisi ollut","tulisi olemaan","ei haluaisi olla","saattaisi olla","olisi sittenkin","ei olisi enää","olisi vieläkin","väittäisi olevansa"],"plural":["olisivat","eivät olisikaan","saattaisivat olla","haluaisivat olla","eivät olisi","olisivat olleet","tulisivat olemaan","eivät haluaisi olla","saattaisivat olla","olisivat sittenkin","eivät olisi enää","olisivat vieläkin","väittäisivät olevansa"]},"objects":{"singular":["tymä","iso","tyhmä","eräveikko","nihkeä","löysä","särmä","aina täällä","kololla","kämpällä","nukkumassa","joulupukki","humalassa","kiva","anal saunassa","kyrpä","kissanpentu","partiossa","hevosmies","animen ystävä","köyhä","teekkari","ihana","saunan nurkassa","lauteiden alla","kännissä","nopea","Stöö","paha","saunassa","kävelevä sanakirja","taksikuski","tyttöjen reppu","poro","rikki","hajonnut","jossain","huhu","laama","HaSi","SuSi","nimetön iguaani","kiertämässä Kairia",""],"plural":["tymiä","isoja","tyhmiä","eräveikkoja","nihkeitä","löysiä","särmiä","aina täällä","kololla","kämpällä","nukkumassa","joulupukki","humalassa","kivoja","anal saunassa","kyrpiä","kissanpentuja","partiossa","hevosmiehiä","animen ystäviä","köyhiä","teekkareita","ihania","saunan nurkassa","lauteiden alla","kännissä","nopea","Stöö","paha","saunassa","kävelevä sanakirja","taksikuskeja","tyttöjen reppuja","poroja","rikki","hajonneita","jossain","huhuja","laamoja","HaSeja","SuSeja","nimettömiä iguaaneja","kiertämässä Kairia",""]}}
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var React = __webpack_require__(1);
+var React = __webpack_require__(0);
 
 const ulStyle = {
     float: "left"
@@ -21324,10 +21352,10 @@ class LineDisplayer extends React.Component {
                 str
             ))
         ));
-        return React.createElement(
+        return lines.length != 0 && lines[0].length != 0 && React.createElement(
             "div",
             null,
-            lines.length != 0 && React.createElement(
+            React.createElement(
                 "p",
                 null,
                 "Huhutaan ett\xE4..."
@@ -21340,11 +21368,11 @@ class LineDisplayer extends React.Component {
 module.exports = LineDisplayer;
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var React = __webpack_require__(1);
-var Button = __webpack_require__(38);
+var React = __webpack_require__(0);
+var Button = __webpack_require__(16);
 var InputField = __webpack_require__(39);
 
 class Form extends React.Component {
@@ -21371,9 +21399,9 @@ class Form extends React.Component {
                 null,
                 'Kuinka monta huhua haluat?'
             ),
-            React.createElement(InputField, { onChange: this.handleChange, value: this.state.userInput }),
+            React.createElement(InputField, { onChange: this.handleChange, value: this.state.userInput, placeholder: "max 1000" }),
             React.createElement('br', null),
-            React.createElement(Button, { onClick: this.handleClick })
+            React.createElement(Button, { onClick: this.handleClick, text: "Generoi!" })
         );
     }
 }
@@ -21381,28 +21409,10 @@ class Form extends React.Component {
 module.exports = Form;
 
 /***/ }),
-/* 38 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var React = __webpack_require__(1);
-
-class Button extends React.Component {
-    render() {
-        return React.createElement(
-            'button',
-            { onClick: this.props.onClick },
-            'Generoi!'
-        );
-    }
-}
-
-module.exports = Button;
-
-/***/ }),
 /* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var React = __webpack_require__(1);
+var React = __webpack_require__(0);
 
 class InputField extends React.Component {
     constructor(props) {
@@ -21416,12 +21426,44 @@ class InputField extends React.Component {
     render() {
         return React.createElement("input", { type: "text",
             onChange: this.handleUserInput,
-            value: this.props.value
+            value: this.props.value,
+            placeholder: this.props.placeholder
         });
     }
 }
 
 module.exports = InputField;
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var React = __webpack_require__(0);
+var Button = __webpack_require__(16);
+var PropTypes = __webpack_require__(10);
+
+const textAreaStyles = {
+    maxWidth: "100%"
+};
+
+class CopyableTextArea extends React.Component {
+
+    render() {
+        var maxSize = 0;
+        return this.props.content.length != 0 && React.createElement('textarea', {
+            readOnly: true,
+            style: textAreaStyles,
+            value: this.props.content.reduce((s1, s2) => s1 + "\n" + s2),
+            rows: 10,
+            cols: 80 });
+    }
+}
+
+CopyableTextArea.propTypes = {
+    content: PropTypes.arrayOf(PropTypes.string)
+};
+
+module.exports = CopyableTextArea;
 
 /***/ })
 /******/ ]);

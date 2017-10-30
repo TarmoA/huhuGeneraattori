@@ -2,6 +2,8 @@ var React = require('react');
 var Generator = require('./Generator.js');
 var LineDisplayer = require('./LineDisplayer.js');
 var Form = require('./Form.js');
+var CopyableTextArea = require('./CopyableTextArea.js');
+var PropTypes = require('prop-types');
 
 
 class App extends React.Component {
@@ -24,8 +26,8 @@ class App extends React.Component {
     }
     changeLineCount(lineCount) {
         const parsed = parseInt(lineCount, 10);
-        if (!isNaN(parsed)) {
-            this.setState({nOfLines: Math.min(parsed, this.state.maxLines)});
+        if (!isNaN(parsed) && parsed.toString() === lineCount && parsed >= 0) {
+            this.setState({nOfLines: Math.min(parsed, this.state.maxLines) });
         } else {
             this.setState({nOfLines: 0});
         }
@@ -36,10 +38,18 @@ class App extends React.Component {
             <div>
                 <h1>Huhugeneraattori</h1>
                 <Form onClick={this.changeContent} onFieldChange={this.changeLineCount}/>
+                <CopyableTextArea content={this.state.content.reduce( ((a, b) => a.concat(b)), [] )}/><br/>
                 <LineDisplayer content={this.state.content}/>
             </div>
         );
     }
 }
+
+App.propTypes = {
+    content: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
+    nOflines: PropTypes.number,
+
+}
+
 
 module.exports = App;
